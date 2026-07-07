@@ -1,0 +1,6 @@
+# Keine zusätzlichen Abhängigkeiten nötig!
+# Alle Module (tkinter, http.server, json, webbrowser, winsound) 
+# sind in Python's Standardbibliothek enthalten.
+
+# Nur für .exe-Build benötigt:
+pyinstaller>=5.0

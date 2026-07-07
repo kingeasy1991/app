@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1e1e2e"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Titel -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📡 NFC-Leser"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#cdd6f4"
+            android:gravity="center"
+            android:paddingBottom="4dp" />
+
+        <!-- Status -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Initialisiere …"
+            android:textSize="13sp"
+            android:textColor="#a6e3a1"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- ─ Verbindungs-Einstellungen ─ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#313244"
+            android:padding="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PC-Verbindung"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#89b4fa"
+                android:paddingBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- IP -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IP-Adresse des PCs"
+                        android:textSize="11sp"
+                        android:textColor="#89b4fa" />
+
+                    <EditText
+                        android:id="@+id/etIp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textColor="#cdd6f4"
+                        android:backgroundTint="#45475a"
+                        android:hint="192.168.1.100"
+                        android:textColorHint="#6c7086"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <View android:layout_width="10dp" android:layout_height="0dp" />
+
+                <!-- Port -->
+                <LinearLayout
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Port"
+                        android:textSize="11sp"
+                        android:textColor="#89b4fa" />
+
+                    <EditText
+                        android:id="@+id/etPort"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textColor="#cdd6f4"
+                        android:backgroundTint="#45475a"
+                        android:hint="8765"
+                        android:textColorHint="#6c7086"
+                        android:singleLine="true" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Einstellungen speichern"
+            android:backgroundTint="#89b4fa"
+            android:textColor="#1e1e2e"
+            android:layout_marginTop="8dp" />
+
+        <!-- ─ Letzter Scan ─ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Letzter Scan"
+            android:textSize="12sp"
+            android:textColor="#89b4fa"
+            android:paddingTop="18dp"
+            android:paddingBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvLastScan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Noch kein Scan …"
+            android:textSize="13sp"
+            android:textColor="#f9e2af"
+            android:fontFamily="monospace"
+            android:background="#181825"
+            android:padding="10dp"
+            android:minLines="3" />
+
+        <!-- ─ Verlauf ─ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verlauf"
+            android:textSize="12sp"
+            android:textColor="#89b4fa"
+            android:paddingTop="14dp"
+            android:paddingBottom="4dp" />
+
+        <!-- Höhe fix, damit der Verlauf scrollbar bleibt -->
+        <ListView
+            android:id="@+id/lvHistory"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="#181825"
+            android:divider="#313244"
+            android:dividerHeight="1dp" />
+
+    </LinearLayout>
+</ScrollView>
