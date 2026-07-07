@@ -1,0 +1,29 @@
+name: NFC-Leser APK bauen
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - uses: android-actions/setup-android@v3
+      - name: Gradle installieren
+        run: |
+          curl -sL https://services.gradle.org/distributions/gradle-8.2-bin.zip -o /tmp/gradle.zip
+          unzip -q /tmp/gradle.zip -d /tmp/
+          echo "/tmp/gradle-8.2/bin" >> $GITHUB_PATH
+      - name: APK bauen
+        working-directory: "nfc leser/android"
+        run: gradle assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NFC-Leser-APK
+          path: "nfc leser/android/app/build/outputs/apk/debug/app-debug.apk"
